@@ -3,7 +3,7 @@ import os
 import telegram
 from flask import Flask, request
 from telegram.ext import Dispatcher, MessageHandler, Filters
-from chatgpt import ChatGPT
+import chatgpt as ChatGPT
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
