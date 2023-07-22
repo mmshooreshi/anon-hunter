@@ -88,8 +88,10 @@ def webhook_handler():
     dispatcher.process_update(update)
     return 'ok'
 
+global chatgpt
 
 def reply_handler(bot, update):
+    global chatgpt
     chatgpt.prompt.add_msg(update.message.text)
     chatgpt.prompt.update_messages("user",update.message.text)
     ai_reply_response = chatgpt.get_response()
@@ -99,5 +101,5 @@ dispatcher = Dispatcher(bot,None)
 dispatcher.add_handler(MessageHandler(Filters.text, reply_handler))
 
 if __name__ == "__main__":
-    chatgpt = ChatGPT()
+    chatgpt= ChatGPT()
     app.run(debug=True)
